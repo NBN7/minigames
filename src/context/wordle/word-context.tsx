@@ -36,8 +36,6 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
     4: "",
   });
 
-  console.log({ guess, word });
-
   return (
     <WordContext.Provider
       value={{
