@@ -6,7 +6,7 @@ export default function WordlePage() {
   return (
     <WordContextProvider>
       <div className="w-full flex justify-center">
-        <div className="max-w-[400px] sm:max-w-[1000px] min-h-[100dvh] flex flex-col justify-evenly p-2">
+        <div className="max-w-[350px] sm:max-w-[1000px] min-h-[100dvh] flex flex-col justify-evenly">
           <Guesser />
           <Keyboard />
         </div>
