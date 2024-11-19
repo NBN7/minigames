@@ -12,8 +12,38 @@ interface KeyProps {
 export const Key = ({ letter, icon, del, enter }: KeyProps) => {
   const { word, guess, setGuess } = useWordContext();
 
+  const getKeyColor = () => {
+    if (!letter) return "";
+
+    let color = "";
+
+    for (let i = 0; i < word.length; i++) {
+      const attempt = guess[i];
+      if (attempt) {
+        for (let j = 0; j < attempt.length; j++) {
+          if (attempt[j].toLowerCase() === letter.toLowerCase()) {
+            if (word[j].toLowerCase() === letter.toLowerCase()) {
+              color = "bg-[#85CCB6] text-white border-none";
+            } else if (word.toLowerCase().includes(letter.toLowerCase())) {
+              if (color !== "bg-[#85CCB6] text-white border-none") {
+                color = "bg-[#F5B13C] text-white border-none";
+              }
+            } else {
+              if (!color) {
+                color =
+                  "bg-[#EE7B88] text-white border-none";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return color || "bg-white text-zinc-800";
+  };
+
   const handleClick = () => {
-    if (letter) {
+    if (letter && guess.word.length < word.length) {
       setGuess((prev) => ({
         ...prev,
         word: prev.word + letter,
@@ -29,12 +59,12 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
       return;
     }
 
-    if (enter) {
+    if (enter && guess.word.length === word.length) {
       const guessNumber = Object.values(guess).findIndex((w) => !w);
-      console.log(Object.keys(word)[guessNumber]);
+
       setGuess((prev) => ({
         ...prev,
-        [Object.keys(word)[guessNumber]]: prev.word,
+        [Object.keys(guess)[guessNumber]]: prev.word,
         word: "",
       }));
       return;
@@ -43,9 +73,9 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
 
   return (
     <button
-      className={`${
-        icon ? "sm:w-[74px] w-14" : "sm:size-12 size-9"
-      } flex items-center justify-center border uppercase`}
+      className={`${getKeyColor()} ${
+        icon ? "sm:w-[86px] w-14" : "sm:size-14 size-9"
+      } flex items-center justify-center border uppercase rounded text-lg transition-all hover:brightness-90`}
       onClick={handleClick}
     >
       {letter || icon}

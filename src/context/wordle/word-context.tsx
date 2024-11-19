@@ -5,11 +5,7 @@ import { WORDS } from "@/constants/wordle";
 
 interface Guess {
   word: string;
-  0: string;
-  1: string;
-  2: string;
-  3: string;
-  4: string;
+  [key: number]: string;
 }
 
 interface WordContextValues {
@@ -28,9 +24,10 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
   const [word] = useState(
     () => WORDS[Math.floor(Math.random() * WORDS.length)]
   );
+
   // guess.word is the user's guess (before they press enter)
   // guess[0-4] are the user's tries
-  const [guess, setGuess] = useState({
+  const [guess, setGuess] = useState<Guess>({
     word: "",
     0: "",
     1: "",
@@ -38,6 +35,8 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
     3: "",
     4: "",
   });
+
+  console.log({ guess, word });
 
   return (
     <WordContext.Provider
