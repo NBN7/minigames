@@ -7,8 +7,8 @@ export const Guesser = () => {
   const { guess, word } = useWordContext();
 
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-2">
-      <div className="w-full flex items-center justify-center gap-2">
+    <div className="w-full flex flex-col items-center justify-center sm:gap-2 gap-1">
+      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
         {guess[0]
           ? guess[0]
               .split("")
@@ -26,7 +26,7 @@ export const Guesser = () => {
               ))}
       </div>
 
-      <div className="w-full flex items-center justify-center gap-2">
+      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
         {guess[1]
           ? guess[1]
               .split("")
@@ -46,7 +46,7 @@ export const Guesser = () => {
           : word.split("").map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center gap-2">
+      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
         {guess[2]
           ? guess[2]
               .split("")
@@ -66,7 +66,7 @@ export const Guesser = () => {
           : word.split("").map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center gap-2">
+      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
         {guess[3]
           ? guess[3]
               .split("")
@@ -86,7 +86,7 @@ export const Guesser = () => {
           : word.split("").map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center gap-2">
+      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
         {guess[4]
           ? guess[4]
               .split("")
