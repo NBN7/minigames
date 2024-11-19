@@ -6,6 +6,8 @@ import { Box } from "@/components/wordle/guesser";
 export const Guesser = () => {
   const { guess, word } = useWordContext();
 
+  if (!word) return;
+
   return (
     <div className="w-full flex flex-col items-center justify-center sm:gap-2 gap-1">
       <div className="w-full flex items-center justify-center sm:gap-2 gap-1">

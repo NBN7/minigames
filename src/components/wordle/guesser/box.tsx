@@ -11,6 +11,8 @@ interface BoxProps {
 export const Box = ({ letter, index, compare }: BoxProps) => {
   const { word } = useWordContext();
 
+  if (!word) return;
+
   const letterCorrect = word[index].toUpperCase() === letter;
   const letterIncluded = letter
     ? word.toLowerCase().includes(letter.toLowerCase())

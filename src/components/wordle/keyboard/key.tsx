@@ -12,6 +12,8 @@ interface KeyProps {
 export const Key = ({ letter, icon, del, enter }: KeyProps) => {
   const { word, guess, setGuess } = useWordContext();
 
+  if (!word) return;
+
   const getKeyColor = () => {
     if (!letter) return "";
 
@@ -30,8 +32,7 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
               }
             } else {
               if (!color) {
-                color =
-                  "bg-[#EE7B88] text-white border-none";
+                color = "bg-[#EE7B88] text-white border-none";
               }
             }
           }
