@@ -23,10 +23,10 @@ export const Box = ({ letter, index, compare }: BoxProps) => {
       <div
         className={`${
           letterCorrect
-            ? "bg-[#85CCB6] text-white"
+            ? "bg-wordle-success text-white"
             : letterIncluded
-            ? "bg-[#F5B13C] text-white"
-            : "bg-[#EE7B88] text-white"
+            ? "bg-wordle-warning text-white"
+            : "bg-wordle-error text-white"
         } sm:size-[72px] size-16 flex items-center justify-center uppercase text-2xl font-semibold rounded transition-all`}
       >
         {letter}
