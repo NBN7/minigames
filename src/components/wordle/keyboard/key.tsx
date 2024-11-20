@@ -1,6 +1,7 @@
 "use client";
 
-import { useWordContext } from "@/context/wordle/word-context";
+import { useMemo } from "react";
+import { useGameContext } from "@/context/wordle/game-context";
 
 interface KeyProps {
   letter?: string;
@@ -10,11 +11,11 @@ interface KeyProps {
 }
 
 export const Key = ({ letter, icon, del, enter }: KeyProps) => {
-  const { word, guess, setGuess } = useWordContext();
+  const { word, guess, setGuess, gameStatus } = useGameContext();
 
-  if (!word) return;
+  const getKeyColor = useMemo(() => {
+    if (!word) return "";
 
-  const getKeyColor = () => {
     if (!letter) return "bg-white text-zinc-800";
 
     let color = "";
@@ -41,10 +42,12 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
     }
 
     return color || "bg-white text-zinc-800";
-  };
+  }, [letter, word, guess]);
 
   const handleClick = () => {
-    if (letter && guess.word.length < word.length) {
+    if (!word) return;
+
+    if (letter && guess.word.length < word.length && !gameStatus) {
       setGuess((prev) => ({
         ...prev,
         word: prev.word + letter,
@@ -74,7 +77,9 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
 
   return (
     <button
-      className={`${getKeyColor()} ${icon ? "sm:w-[86px] w-14" : "sm:size-14 size-9"} flex items-center justify-center border uppercase rounded text-lg transition-all hover:brightness-90`}
+      className={`${getKeyColor} ${
+        icon ? "sm:w-[86px] w-14" : "sm:size-14 size-9"
+      } flex items-center justify-center border uppercase rounded text-lg transition-all hover:brightness-90`}
       onClick={handleClick}
     >
       {letter || icon}

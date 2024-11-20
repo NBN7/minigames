@@ -1,6 +1,6 @@
 "use client";
 
-import { useWordContext } from "@/context/wordle/word-context";
+import { useGameContext } from "@/context/wordle/game-context";
 
 interface BoxProps {
   letter?: string;
@@ -9,7 +9,7 @@ interface BoxProps {
 }
 
 export const Box = ({ letter, index, compare }: BoxProps) => {
-  const { word } = useWordContext();
+  const { word } = useGameContext();
 
   if (!word) return;
 

@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { WORDS } from "@/constants/wordle";
 
 interface Guess {
@@ -8,22 +14,25 @@ interface Guess {
   [key: number]: string;
 }
 
-interface WordContextValues {
+type GameStatus = "win" | "lose" | undefined;
+
+interface GameContextValues {
   word: string | undefined;
   guess: Guess;
   setGuess: React.Dispatch<React.SetStateAction<Guess>>;
+  gameStatus: GameStatus;
+  setGameStatus: React.Dispatch<React.SetStateAction<GameStatus>>;
   reset: () => void;
 }
 
-const WordContext = createContext<WordContextValues | undefined>(undefined);
+const GameContext = createContext<GameContextValues | undefined>(undefined);
 
-interface WordContextProviderProps {
+interface GameContextProviderProps {
   children: React.ReactNode;
 }
 
-export const WordContextProvider = ({ children }: WordContextProviderProps) => {
+export const GameContextProvider = ({ children }: GameContextProviderProps) => {
   const [word, setWord] = useState<string | undefined>(undefined);
-
   // guess.word is the user's guess (before they press enter)
   // guess[0-4] are the user's tries
   const [guess, setGuess] = useState<Guess>({
@@ -34,8 +43,9 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
     3: "",
     4: "",
   });
+  const [gameStatus, setGameStatus] = useState<GameStatus>(undefined);
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setWord(undefined);
     setGuess({
       word: "",
@@ -45,12 +55,12 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
       3: "",
       4: "",
     });
+    setGameStatus(undefined);
     localStorage.removeItem("word");
     localStorage.removeItem("guess");
-  };
+  }, []);
 
   useEffect(() => {
-    // the word can be undefined if the user refreshes the page or if the user retry the game
     if (!word) {
       const storedWord = localStorage.getItem("word");
       const storedGuess = localStorage.getItem("guess");
@@ -75,24 +85,28 @@ export const WordContextProvider = ({ children }: WordContextProviderProps) => {
   }, [guess]);
 
   return (
-    <WordContext.Provider
+    <GameContext.Provider
       value={{
         word,
         guess,
         setGuess,
+        gameStatus,
+        setGameStatus,
         reset,
       }}
     >
       {children}
-    </WordContext.Provider>
+    </GameContext.Provider>
   );
 };
 
-export const useWordContext = () => {
-  const context = useContext(WordContext);
+export const useGameContext = () => {
+  const context = useContext(GameContext);
 
   if (!context) {
-    throw new Error("useWordContext must be used within a WordContextProvider");
+    throw new Error(
+      "useGameContext debe ser utilizado dentro de un GameContextProvider"
+    );
   }
 
   return context;

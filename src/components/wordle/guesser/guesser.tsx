@@ -1,10 +1,10 @@
 "use client";
 
-import { useWordContext } from "@/context/wordle/word-context";
+import { useGameContext } from "@/context/wordle/game-context";
 import { Box } from "@/components/wordle/guesser";
 
 export const Guesser = () => {
-  const { guess, word } = useWordContext();
+  const { guess, word } = useGameContext();
 
   if (!word) return;
 

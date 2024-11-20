@@ -1,6 +1,6 @@
 "use client";
 
-import { useWordContext } from "@/context/wordle/word-context";
+import { useGameContext } from "@/context/wordle/game-context";
 import { Button } from "@/components/ui/button";
 import {
   DialogContent,
@@ -17,7 +17,7 @@ interface PlayAgainProps {
 }
 
 export const PlayAgain = ({ word, win }: PlayAgainProps) => {
-  const { reset } = useWordContext();
+  const { reset } = useGameContext();
 
   const title = win ? "¡Ganaste!" : "¡Perdiste!";
   const buttonText = win ? "Volver a jugar" : "Reintentar";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { WordContextProvider } from "@/context/wordle/word-context";
+import { GameContextProvider } from "@/context/wordle/game-context";
 import { Game } from "@/components/wordle/game";
 
 export const metadata: Metadata = {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function WordlePage() {
   return (
-    <WordContextProvider>
+    <GameContextProvider>
       <Game />
-    </WordContextProvider>
+    </GameContextProvider>
   );
 }
