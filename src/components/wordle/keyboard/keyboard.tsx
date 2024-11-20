@@ -22,7 +22,6 @@ export const Keyboard = () => {
         ))}
         <Key icon={<ForwardIcon />} enter />
       </div>
-      <div className="flex justify-center"></div>
     </div>
   );
 };
