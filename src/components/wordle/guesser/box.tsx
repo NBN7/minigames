@@ -1,6 +1,6 @@
 "use client";
 
-import { useGameContext } from "@/context/wordle/game-context";
+import { useGameContext } from "@/context/wordle";
 
 interface BoxProps {
   letter?: string;

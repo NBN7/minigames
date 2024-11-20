@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useGameContext } from "@/context/wordle/game-context";
+import { useGameContext } from "@/context/wordle";
 import { Guesser } from "@/components/wordle/guesser";
 import { Keyboard } from "@/components/wordle/keyboard";
 import { PlayAgain } from "@/components/wordle/dialog";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GameContextProvider } from "@/context/wordle/game-context";
+import { GameContextProvider } from "@/context/wordle";
 import { Game } from "@/components/wordle/game";
 
 export const metadata: Metadata = {

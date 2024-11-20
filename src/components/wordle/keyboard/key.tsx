@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useGameContext } from "@/context/wordle/game-context";
+import { useGameContext } from "@/context/wordle";
 
 interface KeyProps {
   letter?: string;
