@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useGameContext } from "@/context/wordle";
+import { Container } from "@/components/general";
 import { Guesser } from "@/components/wordle/guesser";
 import { Keyboard } from "@/components/wordle/keyboard";
 import { PlayAgain } from "@/components/wordle/dialog";
@@ -31,12 +32,10 @@ export const Game = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <PlayAgain word={word} win={gameStatus === "win"} />
-      <div className="w-full flex justify-center">
-        <div className="max-w-[350px] sm:max-w-[1000px] min-h-[100dvh] flex flex-col justify-evenly">
-          <Guesser />
-          <Keyboard />
-        </div>
-      </div>
+      <Container className="flex flex-col justify-evenly">
+        <Guesser />
+        <Keyboard />
+      </Container>
     </Dialog>
   );
 };
