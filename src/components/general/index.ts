@@ -1,2 +1,1 @@
-export * from "./container"
-export * from "./search-minigame"
+export * from "./container";
