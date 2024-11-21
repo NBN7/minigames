@@ -1,34 +1,31 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
-import { DialogTitle } from "../ui/dialog";
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from "lucide-react";
+import { Calculator, Calendar, Smile, BoxIcon } from "lucide-react";
 
 export const SearchMinigame = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [recentlyPlayed, setRecentlyPlayed] = useState<string[]>([]);
 
   useEffect(() => {
+    // Cargar juegos recientemente jugados desde localStorage al cargar el componente
+    const savedGames = localStorage.getItem("recentlyPlayed");
+    if (savedGames) {
+      setRecentlyPlayed(JSON.parse(savedGames) as string[]);
+    }
+
     const down = (e: KeyboardEvent) => {
-      if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "g" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setIsOpen((prev) => !prev);
       }
@@ -39,58 +36,59 @@ export const SearchMinigame = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full flex items-center justify-center">
       <Button
         variant="outline"
-        className="text-zinc-600"
+        className="w-full sm:w-80 text-zinc-500 justify-between"
         onClick={() => setIsOpen(true)}
       >
         Buscar minijuego...
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>J
+        <kbd className="hidden pointer-events-none sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <span className="text-xs">⌘</span>G
         </kbd>
       </Button>
-      <Command className="w-11/12 sm:max-w-md">
-        <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTitle className="hidden">Buscar minijuego...</DialogTitle>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>
-                <Calendar />
-                <span>Calendar</span>
-              </CommandItem>
-              <CommandItem>
-                <Smile />
-                <span>Search Emoji</span>
-              </CommandItem>
-              <CommandItem>
-                <Calculator />
-                <span>Calculator</span>
-              </CommandItem>
+      <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
+        <CommandInput placeholder="Buscar minijuego..." />
+        <CommandList>
+          <CommandEmpty>No se encontraron resultados.</CommandEmpty>
+
+          {/* recently played */}
+          {recentlyPlayed.length > 0 && (
+            <CommandGroup heading="Jugado recientemente">
+              {recentlyPlayed.map((game, index) => (
+                <Link key={index} href={game}>
+                  <CommandItem>
+                    <BoxIcon />
+                    <span className="capitalize">{game}</span>
+                  </CommandItem>
+                </Link>
+              ))}
             </CommandGroup>
-            <CommandSeparator />
-            <CommandGroup heading="Settings">
+          )}
+
+          {/* suggestions */}
+          <CommandGroup heading="Sugerencias">
+            <Link href="/wordle">
               <CommandItem>
-                <User />
-                <span>Profile</span>
-                <CommandShortcut>⌘P</CommandShortcut>
+                <BoxIcon />
+                <span>Wordle</span>
               </CommandItem>
-              <CommandItem>
-                <CreditCard />
-                <span>Billing</span>
-                <CommandShortcut>⌘B</CommandShortcut>
-              </CommandItem>
-              <CommandItem>
-                <Settings />
-                <span>Settings</span>
-                <CommandShortcut>⌘S</CommandShortcut>
-              </CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </CommandDialog>
-      </Command>
+            </Link>
+            <CommandItem>
+              <Calendar />
+              <span>Calendario</span>
+            </CommandItem>
+            <CommandItem>
+              <Smile />
+              <span>Emoji</span>
+            </CommandItem>
+            <CommandItem>
+              <Calculator />
+              <span>Calculadora</span>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
     </div>
   );
 };

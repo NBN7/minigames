@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSetRecentlyPlayed } from "@/hooks";
 import { useGameContext } from "@/context/wordle";
 import { Container } from "@/components/general";
 import { Guesser } from "@/components/wordle/guesser";
@@ -11,6 +12,7 @@ import { Dialog } from "@/components/ui/dialog";
 export const Game = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { word, guess, gameStatus, setGameStatus } = useGameContext();
+  useSetRecentlyPlayed("wordle");
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { word: _, ...guesses } = guess;

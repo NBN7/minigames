@@ -27,7 +27,7 @@ export const Box = ({ letter, index, compare }: BoxProps) => {
             : letterIncluded
             ? "bg-wordle-warning text-white"
             : "bg-wordle-error text-white"
-        } sm:size-[72px] size-16 flex items-center justify-center uppercase text-2xl font-semibold rounded transition-all`}
+        } sm:size-16 lg:size-[72px] size-12 flex items-center justify-center uppercase text-2xl font-semibold rounded transition-all`}
       >
         {letter}
       </div>
@@ -35,7 +35,7 @@ export const Box = ({ letter, index, compare }: BoxProps) => {
   }
 
   return (
-    <div className="sm:size-[72px] size-16 flex items-center justify-center uppercase text-2xl border-2 font-semibold rounded text-zinc-800">
+    <div className="sm:size-16 lg:size-[72px] size-12 flex items-center justify-center uppercase text-2xl border-2 font-semibold rounded transition-all">
       {letter}
     </div>
   );

@@ -16,7 +16,7 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
   const getKeyColor = useMemo(() => {
     if (!word) return "";
 
-    if (!letter) return "bg-white text-zinc-800";
+    if (!letter) return "bg-white";
 
     let color = "";
 
@@ -41,7 +41,7 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
       }
     }
 
-    return color || "bg-white text-zinc-800";
+    return color || "bg-white";
   }, [letter, word, guess]);
 
   const handleClick = () => {
