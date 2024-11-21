@@ -23,10 +23,7 @@ export const PlayAgain = ({ word, win }: PlayAgainProps) => {
   const buttonText = win ? "Volver a jugar" : "Reintentar";
 
   return (
-    <DialogContent
-      className="w-11/12 sm:max-w-md"
-      onOpenAutoFocus={(e) => e.preventDefault()}
-    >
+    <DialogContent onOpenAutoFocus={(e) => e.preventDefault()}>
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>La palabra era {word}</DialogDescription>
