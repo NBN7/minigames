@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useGameContext } from "@/context/wordle";
+import { toast } from "sonner";
 
 interface KeyProps {
   letter?: string;
@@ -44,7 +45,7 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
     return color || "bg-white";
   }, [letter, word, guess]);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!word) return;
 
     if (letter && guess.word.length < word.length && !gameStatus) {
@@ -64,6 +65,14 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
     }
 
     if (enter && guess.word.length === word.length) {
+      const res = await fetch(`/api/wordle/validate?word=${guess.word}`);
+      const data = await res.json();
+
+      if (!data.isValid) {
+        toast.error(`La palabra ${guess.word} no es válida!`);
+        return;
+      }
+
       const guessNumber = Object.values(guess).findIndex((w) => !w);
 
       setGuess((prev) => ({

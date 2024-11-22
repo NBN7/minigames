@@ -19,7 +19,7 @@ Cada minijuego está implementado como una página independiente, lo que facilit
 - **Organización por carpetas**:
 
   - Todos los componentes, constantes, contextos, custom hooks, etc., específicos de un juego deben crearse dentro de la carpeta `/src/[tipo]/[juego]`.
-  - Los componentes generales (que no pertenecen a un juego específico) deben almacenarse en `/src/components/general`.
+  - Los componentes, constantes, contextos, custom hooks, etc. generales (que no pertenecen a un juego específico) deben almacenarse en `/src/[tipo]/general`.
 
 - **Exportaciones centralizadas**: cada carpeta debe incluir un archivo `index.ts` para exportar todos los archivos de esa carpeta.
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSetRecentlyPlayed } from "@/hooks";
+import { useSetRecentlyPlayed } from "@/hooks/general";
 import { useGameContext } from "@/context/wordle";
 import { Container } from "@/components/general";
 import { Guesser } from "@/components/wordle/guesser";
