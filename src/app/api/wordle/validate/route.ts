@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
   if (!word)
     return NextResponse.json({
       message: "You should send a word to validate it",
+      isValid: false,
     });
 
   if ((validWords as string[]).includes(word)) {
