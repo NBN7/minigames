@@ -29,4 +29,4 @@ El proyecto utiliza [shadcn](https://ui.shadcn.com/) para los componentes de la 
 
 ---
 
-¡Explora el código, añade tus ideas y diviértete construyendo esta colección de minijuegos!
+_Hecho con ❤️ por Nacho._
