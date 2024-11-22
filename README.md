@@ -1,6 +1,6 @@
 # Minijuegos Open Source
 
-Este proyecto es una colección de **minijuegos Open Source** desarrollados con **Next.js**, **TypeScript**, **Tailwind CSS** y **shadcn**. Diseñado para ser modular y fácil de extender.
+Este proyecto es una colección de **minijuegos Open Source** desarrollados con [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindcss.com/) y [shadcn](https://ui.shadcn.com/). Diseñado para ser modular y fácil de extender.
 
 Cada minijuego está implementado como una página independiente, lo que facilita la navegación y el mantenimiento del código. Enfocado en la colaboración, el proyecto sigue una estructura clara y utiliza tecnologías modernas para ofrecer una experiencia de desarrollo fluida y eficiente.
 
@@ -25,7 +25,7 @@ Cada minijuego está implementado como una página independiente, lo que facilit
 
 ### Estilo y componentes de UI
 
-El proyecto utiliza **shadcn** para los componentes de la interfaz de usuario, asegurando consistencia y una experiencia visual moderna. Por favor, sigue este estándar al agregar o modificar componentes.
+El proyecto utiliza [shadcn](https://ui.shadcn.com/) para los componentes de la interfaz de usuario, asegurando consistencia y una experiencia visual moderna. Por favor, sigue este estándar al agregar o modificar componentes.
 
 ---
 
