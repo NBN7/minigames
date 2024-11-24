@@ -12,7 +12,7 @@ Cada minijuego está implementado como una página independiente, lo que facilit
 
 - **Cada juego es una página**: cada minijuego se encuentra como una página independiente dentro del proyecto.
 
-- **Uso de `useSetRecentlyPlayed`**: en el componente principal del juego, debes incluir el custom hook `useSetRecentlyPlayed` para registrar el juego en la sección "Jugado recientemente".
+- **Uso de useSetRecentlyPlayed**: en el componente principal del juego, debes incluir el custom hook `useSetRecentlyPlayed` para registrar el juego en la sección "Jugado recientemente".
 
   - Este hook acepta un único parámetro: el nombre del minijuego, que debe coincidir exactamente con el nombre de la URL.
 
@@ -25,7 +25,9 @@ Cada minijuego está implementado como una página independiente, lo que facilit
 
 ### Estilo y componentes de UI
 
-- El width máximo para desktop es de 1000px, por lo que se recomienda utilizar `sm:w-[1000px]`.
+- El ancho máximo para pantallas de escritorio es de **1000px**.  
+  Para cumplir con esta regla, se recomienda usar el componente `Container`, ubicado en el archivo `src\components\general\container.tsx`.  
+  Este componente incluye [twMerge](https://www.npmjs.com/package/tailwind-merge), lo que permite personalizar su estilo fácilmente si es necesario.
 
 - El proyecto utiliza [shadcn](https://ui.shadcn.com/) para los componentes de la interfaz de usuario, asegurando consistencia y una experiencia visual moderna. Por favor, sigue este estándar al agregar o modificar componentes.
 
