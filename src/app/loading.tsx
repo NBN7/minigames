@@ -4,8 +4,8 @@ import { Loader2Icon } from "lucide-react";
 export default function Loading() {
   return (
     <Container
-      container="min-h-[100dvh]"
-      className="flex items-center justify-center"
+      outerClassName="min-h-[100dvh]"
+      innerClassName="flex items-center justify-center"
     >
       <Loader2Icon className="animate-spin" />
     </Container>

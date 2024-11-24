@@ -34,7 +34,7 @@ export const Game = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <PlayAgain word={word} win={gameStatus === "win"} />
-      <Container className="flex flex-col justify-evenly">
+      <Container className="min-h-[calc(100dvh-72px)] flex flex-col justify-evenly">
         <Guesser />
         <Keyboard />
       </Container>

@@ -2,14 +2,25 @@ import { twMerge } from "tailwind-merge";
 
 interface ContainerProps {
   children: React.ReactNode;
-  container?: string;
-  className?: string;
+  outerClassName?: string;
+  innerClassName?: string;
 }
 
-export const Container = ({ children, container, className }: ContainerProps) => {
+export const Container = ({
+  children,
+  outerClassName,
+  innerClassName,
+}: ContainerProps) => {
   return (
-    <div className={twMerge("w-full flex items-center justify-center", container)}>
-      <div className={twMerge("w-full sm:w-[1000px] min-h-[calc(100dvh-72px)] px-2", className)}>{children}</div>
+    <div
+      className={twMerge(
+        "w-full flex items-center justify-center",
+        outerClassName
+      )}
+    >
+      <div className={twMerge("w-full sm:w-[1000px] px-2", innerClassName)}>
+        {children}
+      </div>
     </div>
   );
 };
