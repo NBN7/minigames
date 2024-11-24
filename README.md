@@ -25,7 +25,9 @@ Cada minijuego está implementado como una página independiente, lo que facilit
 
 ### Estilo y componentes de UI
 
-El proyecto utiliza [shadcn](https://ui.shadcn.com/) para los componentes de la interfaz de usuario, asegurando consistencia y una experiencia visual moderna. Por favor, sigue este estándar al agregar o modificar componentes.
+- El width máximo para desktop es de 1000px, por lo que se recomienda utilizar `sm:w-[1000px]`.
+
+- El proyecto utiliza [shadcn](https://ui.shadcn.com/) para los componentes de la interfaz de usuario, asegurando consistencia y una experiencia visual moderna. Por favor, sigue este estándar al agregar o modificar componentes.
 
 ---
 
