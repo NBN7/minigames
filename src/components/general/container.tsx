@@ -18,7 +18,9 @@ export const Container = ({
         outerClassName
       )}
     >
-      <div className={twMerge("w-full sm:w-[1000px] px-2", innerClassName)}>
+      <div
+        className={twMerge("w-full sm:w-[1000px] px-2 sm:p-0", innerClassName)}
+      >
         {children}
       </div>
     </div>
