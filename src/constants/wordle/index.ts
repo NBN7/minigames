@@ -1,3 +1,3 @@
 export * from "./wordle";
-import validWords from "./valid-words.json";
-export { validWords };
+import VALID_WORDS from "./valid-words.json";
+export { VALID_WORDS };

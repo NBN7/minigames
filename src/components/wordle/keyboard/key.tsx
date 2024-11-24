@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useGameContext } from "@/context/wordle";
-import { validWords } from "@/constants/wordle";
+import { VALID_WORDS } from "@/constants/wordle";
 import { toast } from "sonner";
 
 interface KeyProps {
@@ -66,7 +66,7 @@ export const Key = ({ letter, icon, del, enter }: KeyProps) => {
     }
 
     if (enter && guess.word.length === word.length) {
-      if (!(validWords as string[]).includes(guess.word.toLowerCase())) {
+      if (!(VALID_WORDS as string[]).includes(guess.word.toLowerCase())) {
         toast.error(`La palabra ${guess.word} no es válida!`);
         return;
       }
