@@ -1,2 +1,2 @@
-export * from "./navbar"
-export * from "./search-minigame"
+export * from "./navbar";
+export * from "./search-minigame";

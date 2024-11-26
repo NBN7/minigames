@@ -9,8 +9,8 @@ export const Guesser = () => {
   if (!word) return;
 
   return (
-    <div className="w-full flex flex-col items-center justify-center sm:gap-2 gap-1">
-      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
+    <div className="flex w-full flex-col items-center justify-center gap-1 sm:gap-2">
+      <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[0]
           ? guess[0]
               .split("")
@@ -28,7 +28,7 @@ export const Guesser = () => {
               ))}
       </div>
 
-      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
+      <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[1]
           ? guess[1]
               .split("")
@@ -36,19 +36,21 @@ export const Guesser = () => {
                 <Box key={index} letter={letter} index={index} compare />
               ))
           : guess[0]
-          ? word
-              .split("")
-              .map((_, index) => (
-                <Box
-                  key={index}
-                  letter={guess.word.split("")[index]}
-                  index={index}
-                />
-              ))
-          : word.split("").map((_, index) => <Box key={index} index={index} />)}
+            ? word
+                .split("")
+                .map((_, index) => (
+                  <Box
+                    key={index}
+                    letter={guess.word.split("")[index]}
+                    index={index}
+                  />
+                ))
+            : word
+                .split("")
+                .map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
+      <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[2]
           ? guess[2]
               .split("")
@@ -56,19 +58,21 @@ export const Guesser = () => {
                 <Box key={index} letter={letter} index={index} compare />
               ))
           : guess[1]
-          ? word
-              .split("")
-              .map((_, index) => (
-                <Box
-                  key={index}
-                  letter={guess.word.split("")[index]}
-                  index={index}
-                />
-              ))
-          : word.split("").map((_, index) => <Box key={index} index={index} />)}
+            ? word
+                .split("")
+                .map((_, index) => (
+                  <Box
+                    key={index}
+                    letter={guess.word.split("")[index]}
+                    index={index}
+                  />
+                ))
+            : word
+                .split("")
+                .map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
+      <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[3]
           ? guess[3]
               .split("")
@@ -76,19 +80,21 @@ export const Guesser = () => {
                 <Box key={index} letter={letter} index={index} compare />
               ))
           : guess[2]
-          ? word
-              .split("")
-              .map((_, index) => (
-                <Box
-                  key={index}
-                  letter={guess.word.split("")[index]}
-                  index={index}
-                />
-              ))
-          : word.split("").map((_, index) => <Box key={index} index={index} />)}
+            ? word
+                .split("")
+                .map((_, index) => (
+                  <Box
+                    key={index}
+                    letter={guess.word.split("")[index]}
+                    index={index}
+                  />
+                ))
+            : word
+                .split("")
+                .map((_, index) => <Box key={index} index={index} />)}
       </div>
 
-      <div className="w-full flex items-center justify-center sm:gap-2 gap-1">
+      <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[4]
           ? guess[4]
               .split("")
@@ -96,16 +102,18 @@ export const Guesser = () => {
                 <Box key={index} letter={letter} index={index} compare />
               ))
           : guess[3]
-          ? word
-              .split("")
-              .map((_, index) => (
-                <Box
-                  key={index}
-                  letter={guess.word.split("")[index]}
-                  index={index}
-                />
-              ))
-          : word.split("").map((_, index) => <Box key={index} index={index} />)}
+            ? word
+                .split("")
+                .map((_, index) => (
+                  <Box
+                    key={index}
+                    letter={guess.word.split("")[index]}
+                    index={index}
+                  />
+                ))
+            : word
+                .split("")
+                .map((_, index) => <Box key={index} index={index} />)}
       </div>
     </div>
   );

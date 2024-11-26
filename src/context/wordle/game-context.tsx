@@ -105,7 +105,7 @@ export const useGameContext = () => {
 
   if (!context) {
     throw new Error(
-      "useGameContext debe ser utilizado dentro de un GameContextProvider"
+      "useGameContext debe ser utilizado dentro de un GameContextProvider",
     );
   }
 

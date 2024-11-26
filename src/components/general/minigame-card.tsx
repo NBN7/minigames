@@ -26,7 +26,7 @@ export const MinigameCard = ({
   const handleClick = () => router.push(`/${minigame}`);
 
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex h-full flex-col">
       <CardHeader className="flex-grow">
         <CardTitle className="capitalize">{minigame}</CardTitle>
         <CardDescription>{description}</CardDescription>

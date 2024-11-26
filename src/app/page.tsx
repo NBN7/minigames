@@ -4,7 +4,7 @@ import { MINIGAMES } from "@/constants/general";
 export default function Page() {
   return (
     <Container innerClassName="mt-12">
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="grid gap-6 sm:grid-cols-2">
         {MINIGAMES.map((minigame) => (
           <MinigameCard
             key={minigame.NAME}

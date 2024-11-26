@@ -47,7 +47,7 @@ export const Keyboard = () => {
         }));
       }
     },
-    [word, guess, setGuess, gameStatus]
+    [word, guess, setGuess, gameStatus],
   );
 
   const getKeyColor = (letter: string) => {
@@ -121,7 +121,7 @@ export const Keyboard = () => {
   }, [handleKeyDown]);
 
   return (
-    <div className={`w-full flex flex-col gap-1 ${shake ? styles.shake : ""}`}>
+    <div className={`flex w-full flex-col gap-1 ${shake ? styles.shake : ""}`}>
       {[LETTERS.FIRST_ROW, LETTERS.SECOND_ROW, LETTERS.THIRD_ROW].map(
         (row, index) => (
           <div key={index} className="flex justify-center gap-1">
@@ -140,7 +140,7 @@ export const Keyboard = () => {
               <Key icon={<ForwardIcon />} onClick={handleEnter} />
             )}
           </div>
-        )
+        ),
       )}
     </div>
   );

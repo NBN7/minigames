@@ -43,14 +43,14 @@ export const SearchMinigame = () => {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="flex w-full items-center justify-center">
       <Button
         variant="outline"
-        className="w-full sm:w-80 text-zinc-500 justify-between"
+        className="w-full justify-between text-zinc-500 sm:w-80"
         onClick={() => setIsOpen(true)}
       >
         Buscar minijuego...
-        <kbd className="hidden pointer-events-none sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+        <kbd className="bg-muted text-muted-foreground pointer-events-none hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:inline-flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>

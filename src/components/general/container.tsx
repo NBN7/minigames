@@ -14,12 +14,15 @@ export const Container = ({
   return (
     <div
       className={twMerge(
-        "w-full flex items-center justify-center",
-        outerClassName
+        "flex w-full items-center justify-center",
+        outerClassName,
       )}
     >
       <div
-        className={twMerge("w-full sm:w-[1000px] px-2 sm:p-0", innerClassName)}
+        className={twMerge(
+          "w-full px-2 duration-500 animate-in fade-in-5 slide-in-from-bottom-2 sm:w-[1000px] sm:p-0",
+          innerClassName,
+        )}
       >
         {children}
       </div>

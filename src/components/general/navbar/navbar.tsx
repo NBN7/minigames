@@ -5,9 +5,9 @@ import { IoLogoGithub } from "react-icons/io";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full flex items-center justify-center sticky top-0 p-4 z-50 bg-white">
-      <div className="w-full sm:w-[1000px] flex items-center justify-between gap-4">
-        <Link className="hover:scale-110 transition-all" href="/">
+    <nav className="sticky top-0 z-50 flex w-full items-center justify-center bg-white p-4">
+      <div className="flex w-full items-center justify-between gap-4 sm:w-[1000px]">
+        <Link className="transition-all hover:scale-110" href="/">
           <Gamepad2Icon />
         </Link>
         <SearchMinigame />
@@ -15,7 +15,7 @@ export const Navbar = () => {
           href="https://github.com/NBN7/minigames"
           target="_blank"
           rel="noreferrer"
-          className="hover:scale-110 transition-all"
+          className="transition-all hover:scale-110"
         >
           <IoLogoGithub className="size-6" />
         </Link>
