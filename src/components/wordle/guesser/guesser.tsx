@@ -9,7 +9,7 @@ export const Guesser = () => {
   if (!word) return;
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-1 sm:gap-2">
+    <div className="flex w-full select-none flex-col items-center justify-center gap-1 sm:gap-2">
       <div className="flex w-full items-center justify-center gap-1 sm:gap-2">
         {guess[0]
           ? guess[0]
