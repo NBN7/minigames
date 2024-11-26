@@ -11,3 +11,7 @@ body {
     @apply text-zinc-800;
   }
 }
+
+::selection {
+  @apply bg-zinc-800 text-white;
+}
