@@ -6,7 +6,7 @@ export const MINIGAMES = [
     COMING_SOON: false,
   },
   {
-    NAME: "proximamente",
+    NAME: "próximamente",
     DESCRIPTION:
       "Estamos trabajando en algo increíble para vos. Muy pronto vas a poder disfrutar de un nuevo desafío que pondrá a prueba tus habilidades. ¡Estate atento!",
     COMING_SOON: true,
