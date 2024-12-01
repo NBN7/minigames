@@ -11,12 +11,7 @@ export const Navbar = () => {
           <Gamepad2Icon />
         </Link>
         <SearchMinigame />
-        <Link
-          href="https://github.com/NBN7/minigames"
-          target="_blank"
-          rel="noreferrer"
-          className="transition-all hover:scale-110"
-        >
+        <Link href="/contributors" className="transition-all hover:scale-110">
           <IoLogoGithub className="size-6" />
         </Link>
       </div>
