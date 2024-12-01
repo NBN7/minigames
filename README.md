@@ -4,6 +4,8 @@ Este proyecto es una colección de **minijuegos Open Source** desarrollados con 
 
 Cada minijuego está implementado como una página independiente, lo que facilita la navegación y el mantenimiento del código. Enfocado en la colaboración, el proyecto sigue una estructura clara y utiliza tecnologías modernas para ofrecer una experiencia de desarrollo fluida y eficiente.
 
+Además, los contribuidores son agregados automáticamente en `/contributors` y están ordenados dependiendo de la cantidad de contribuciones realizadas.
+
 ## ¿Cómo contribuir?
 
 ¡Gracias por tu interés en contribuir! Sigue estas pautas para asegurarte de que tu aporte se integre correctamente al proyecto:
