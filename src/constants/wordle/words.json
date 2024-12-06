@@ -1,4 +1,9 @@
 [
+  "suelo",
+  "clima",
+  "mapa",
+  "campo",
+  "lote",
   "zona",
   "mesa",
   "gato",
@@ -7,6 +12,7 @@
   "lapiz",
   "papel",
   "mango",
+  "trigo",
   "pluma",
   "perro",
   "carro",
@@ -153,5 +159,8 @@
   "brasa",
   "chorro",
   "famoso",
+  "muestra",
+  "sensor",
+  "equipo",
   "diario"
 ]
